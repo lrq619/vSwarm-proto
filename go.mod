@@ -1,4 +1,4 @@
-module github.com/vhive-serverless/vSwarm-proto
+module github.com/lrq619/vSwarm-proto
 
 go 1.16
 
