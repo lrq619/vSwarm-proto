@@ -5,16 +5,16 @@ import (
 	"math/rand"
 
 	log "github.com/sirupsen/logrus"
-	pb "github.com/lrq619/vSwarm-proto/proto/bert"
+	pb "github.com/vhive-serverless/vSwarm-proto/proto/bert"
 )
 
 var inputs = []string{"allow", "deny", "unbertorized", "bla bla"}
 
-type BertGenerator struct {
+type AuthGenerator struct {
 	GeneratorBase
 }
 
-func (g *BertGenerator) Next() Input {
+func (g *AuthGenerator) Next() Input {
 	var pkt = g.defaultInput
 	switch g.GeneratorBase.generator {
 	case Unique:
@@ -29,21 +29,21 @@ func (g *BertGenerator) Next() Input {
 	return pkt
 }
 
-func (c *BertClient) GetGenerator() Generator {
-	return new(BertGenerator)
+func (c *AuthClient) GetGenerator() Generator {
+	return new(AuthGenerator)
 }
 
-type BertClient struct {
+type AuthClient struct {
 	ClientBase
 	client pb.GreeterClient
 }
 
-func (c *BertClient) Init(ctx context.Context, ip, port string) {
+func (c *AuthClient) Init(ctx context.Context, ip, port string) {
 	c.Connect(ctx, ip, port)
 	c.client = pb.NewGreeterClient(c.conn)
 }
 
-func (c *BertClient) Request(ctx context.Context, req Input) string {
+func (c *AuthClient) Request(ctx context.Context, req Input) string {
 	var bertMessage = req.Value
 	r, err := c.client.SayHello(ctx, &pb.HelloRequest{Name: bertMessage})
 	if err != nil {
