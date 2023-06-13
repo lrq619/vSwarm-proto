@@ -5,7 +5,7 @@ import (
 	"math/rand"
 
 	log "github.com/sirupsen/logrus"
-	pb "github.com/vhive-serverless/vSwarm-proto/proto/bert"
+	pb "github.com/lrq619/vSwarm-proto/proto/bert"
 )
 
 var inputs = []string{"allow", "deny", "unbertorized", "bla bla"}

@@ -1,14 +1,16 @@
-module github.com/vhive-serverless/vSwarm-proto
+module github.com/lrq619/vSwarm-proto
 
 go 1.16
 
 replace (
 	github.com/vhive-serverless/vSwarm-proto/proto/aes => ./proto/aes
 	github.com/vhive-serverless/vSwarm-proto/proto/auth => ./proto/auth
+	github.com/vhive-serverless/vSwarm-proto/proto/bert => ./proto/bert
 	github.com/vhive-serverless/vSwarm-proto/proto/fibonacci => ./proto/fibonacci
 	github.com/vhive-serverless/vSwarm-proto/proto/helloworld => ./proto/helloworld
 	github.com/vhive-serverless/vSwarm-proto/proto/hipstershop => ./proto/hipstershop
 	github.com/vhive-serverless/vSwarm-proto/proto/hotel_reserv => ./proto/hotel_reserv
+	
 )
 
 require (
