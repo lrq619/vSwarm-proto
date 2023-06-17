@@ -39,7 +39,7 @@ message HelloRequest {
 
 // The response message containing the greetings
 message HelloReply {
-  int min_latency = 1;
-  int max_latency = 1;
-  int mean_latency = 1;
+  int64 min_latency = 1;
+  int64 max_latency = 2;
+  int64 mean_latency = 3;
 }
