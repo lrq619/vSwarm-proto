@@ -10,11 +10,11 @@ import (
 
 var inputs = []string{"allow", "deny", "unbertorized", "bla bla"}
 
-type AuthGenerator struct {
+type BertGenerator struct {
 	GeneratorBase
 }
 
-func (g *AuthGenerator) Next() Input {
+func (g *BertGenerator) Next() Input {
 	var pkt = g.defaultInput
 	switch g.GeneratorBase.generator {
 	case Unique:
@@ -29,21 +29,21 @@ func (g *AuthGenerator) Next() Input {
 	return pkt
 }
 
-func (c *AuthClient) GetGenerator() Generator {
-	return new(AuthGenerator)
+func (c *BertClient) GetGenerator() Generator {
+	return new(BertGenerator)
 }
 
-type AuthClient struct {
+type BertClient struct {
 	ClientBase
 	client pb.GreeterClient
 }
 
-func (c *AuthClient) Init(ctx context.Context, ip, port string) {
+func (c *BertClient) Init(ctx context.Context, ip, port string) {
 	c.Connect(ctx, ip, port)
 	c.client = pb.NewGreeterClient(c.conn)
 }
 
-func (c *AuthClient) Request(ctx context.Context, req Input) string {
+func (c *BertClient) Request(ctx context.Context, req Input) string {
 	var bertMessage = req.Value
 	r, err := c.client.SayHello(ctx, &pb.HelloRequest{Name: bertMessage})
 	if err != nil {
