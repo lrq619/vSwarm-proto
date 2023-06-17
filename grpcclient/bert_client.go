@@ -2,7 +2,6 @@ package grpcclient
 
 import (
 	"context"
-	"math/rand"
 
 	log "github.com/sirupsen/logrus"
 	pb "github.com/lrq619/vSwarm-proto/proto/bert"
