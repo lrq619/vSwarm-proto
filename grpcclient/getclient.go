@@ -93,7 +93,7 @@ func FindGrpcClient(service_name string) GrpcClient {
 
 	// Default ---------
 	default:
-		log.Warnf("[change]Did not find a matching client for %s... Will use the default Hello world client. \n", service_name)
+		log.Warnf("Did not find a matching client for %s... Will use the default Hello world client. \n", service_name)
 		return new(HelloWorldClient)
 	}
 }
