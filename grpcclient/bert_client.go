@@ -8,7 +8,7 @@ import (
 	pb "github.com/lrq619/vSwarm-proto/proto/bert"
 )
 
-var inputs = []string{"allow", "deny", "unbertorized", "bla bla"}
+// var inputs = []string{"allow", "deny", "unbertorized", "bla bla"}
 
 type BertGenerator struct {
 	GeneratorBase
@@ -24,7 +24,7 @@ func (g *BertGenerator) Next() Input {
 		// pkt.Value = fmt.Sprintf("%d", g.count)
 		pkt.Value = "A linear message"
 	case Random:
-		pkt.Value = inputs[rand.Intn(len(inputs))]
+		pkt.Value = "random"
 	}
 	return pkt
 }
